@@ -13,83 +13,68 @@ body{
 }
 
 .container{
-    max-width:430px;
+    max-width:390px;
     margin:auto;
     background:#fff;
     min-height:100vh;
-    padding:16px;
+    padding:12px;
     text-align:center;
 }
 
 /* HEADER */
 .header{
-    font-size:24px;
+    font-size:21px;
     font-weight:800;
-    margin:12px 0 16px;
+    margin:10px 0 14px;
 }
 
-/* PINK NOTICE */
+/* NOTICE */
 .notice{
     background:linear-gradient(90deg,#ff7eb3,#ff758c);
     color:#fff;
-    padding:16px;
-    border-radius:16px;
+    padding:12px;
+    border-radius:14px;
+    font-size:14.5px;
     font-weight:600;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
-/* TEXT */
-.title{
-    font-size:18px;
-    font-weight:600;
-    margin-bottom:10px;
-}
-
-.name{
-    font-size:22px;
-    font-weight:700;
-}
-
-.bank{
-    font-size:18px;
-    margin-bottom:26px;
-}
-
+/* INFO */
 .sub{
-    font-size:17px;
-    margin-bottom:8px;
+    font-size:15px;
+    margin-bottom:6px;
 }
 
 .acc-name{
-    font-size:20px;
+    font-size:17px;
     font-weight:700;
 }
 
 .acc-number{
-    font-size:18px;
+    font-size:15px;
     color:#555;
 }
 
 /* QR CARD */
 .qr-card{
     background:#fff;
-    margin:20px auto;
-    padding:16px;
-    border-radius:18px;
+    margin:18px auto;
+    padding:12px;
+    border-radius:16px;
     box-shadow:0 8px 22px rgba(0,0,0,.12);
 }
 
 .qr-card img{
     width:100%;
-    max-width:300px;
+    max-width:260px;
     display:block;
     margin:auto;
 }
 
 /* STK LINE */
 .stk-line{
-    margin:16px 0 20px;
-    font-size:18px;
+    margin:14px 0 16px;
+    font-size:15px;
 }
 
 .stk-line span{
@@ -100,16 +85,16 @@ body{
 /* BUTTONS */
 .btn-group{
     display:flex;
-    gap:12px;
+    gap:10px;
 }
 
 .btn{
     flex:1;
     background:#0d6efd;
     color:#fff;
-    padding:14px 10px;
-    border-radius:12px;
-    font-size:16px;
+    padding:10px 8px;
+    border-radius:10px;
+    font-size:14px;
     font-weight:600;
     border:none;
 }
@@ -118,13 +103,13 @@ body{
     transform:scale(.96);
 }
 
-/* MORI BOX */
+/* MORI */
 .mori-box{
-    margin-top:18px;
+    margin-top:16px;
     background:linear-gradient(90deg,#ffd56b,#ffb703);
-    padding:14px;
-    border-radius:16px;
-    font-size:17px;
+    padding:12px;
+    border-radius:14px;
+    font-size:15px;
     font-weight:700;
     box-shadow:0 6px 14px rgba(0,0,0,.15);
     animation:moriPulse 2.5s infinite;
@@ -139,14 +124,14 @@ body{
 /* TOAST */
 #toast{
     position:fixed;
-    bottom:110px;
+    bottom:100px;
     left:50%;
     transform:translateX(-50%) translateY(20px) scale(.95);
     background:rgba(0,0,0,.85);
     color:#fff;
-    padding:10px 18px;
+    padding:9px 16px;
     border-radius:999px;
-    font-size:14px;
+    font-size:13px;
     opacity:0;
     pointer-events:none;
     transition:.35s;
@@ -167,12 +152,10 @@ body{
 
     <div class="notice">
         ⭐ Bạn không cần suy nghĩ gì cả! ⭐<br>
-        Cứ quét mã – việc còn lại để TUI lo 😎
+        Cứ quét mã – tui tự lo thân tui 😎
     </div>
 
-    <div class="title">Quét mã chuyển khoản</div>
-    <div class="name">PHẠM ĐỨC LÂM</div>
-    <div class="bank">Techcombank</div>
+    <!-- ĐÃ BỎ 3 DÒNG THEO YÊU CẦU -->
 
     <div class="sub">Quét mã để chuyển tiền đến</div>
     <div class="acc-name">PHAM DUC LAM</div>
@@ -188,10 +171,10 @@ body{
 
     <div class="btn-group">
         <button class="btn" onclick="copyText('stkText','Đã copy số tài khoản')">
-            📋 Copy số tài khoản
+            📋 Copy STK
         </button>
         <button class="btn" onclick="copyND()">
-            ✍️ Copy nội dung CK
+            ✍️ Copy nội dung
         </button>
     </div>
 
