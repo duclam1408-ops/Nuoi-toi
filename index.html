@@ -3,79 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dịch vụ Nuôi Tui</title>
-<style>@keyframes blinkSoft {
-  0% { opacity: 1; }
-  50% { opacity: 0.75; }
-  100% { opacity: 1; }
-}
 
-.blink-soft {
-  animation: blinkSoft 1.5s infinite;
-}
-body{font-family:Arial;background:#f2f2f2;margin:0}
-.container{max-width:420px;margin:20px auto;background:#fff;
-border-radius:16px;padding:20px;box-shadow:0 6px 15px rgba(0,0,0,.15)}
-h1{text-align:center}
-.card{border-radius:14px;padding:16px;margin-bottom:15px;text-align:center;line-height:1.6}
-.pink{background:linear-gradient(135deg,#ff7eb3,#ff758c);color:#fff}
-.orange{background:linear-gradient(135deg,#ffb347,#ffcc33);font-weight:bold}
-.qr-box{text-align:center}
-.qr-box img{width:260px;max-width:100%;border-radius:12px;cursor:pointer}
-.btn{background:#007bff;color:#fff;border:none;padding:10px 14px;
-border-radius:10px;margin:5px;font-size:14px}
-</style>
-</head><!-- Facebook / Messenger Preview -->
-<meta property="og:title" content="🎁 Dịch vụ Nuôi Mori 🎁">
+<title>Nuôi Mori</title>
+
+<!-- Preview Messenger / Facebook -->
+<meta property="og:title" content="🎁 Nuôi Mori 🎁">
 <meta property="og:description" content="Quét là chuyển – việc còn lại để tui lo 😎">
 <meta property="og:image" content="https://duclam1408-ops.github.io/Nuoi-toi/IMG_0207.jpeg">
 <meta property="og:url" content="https://duclam1408-ops.github.io/Nuoi-toi/">
 <meta property="og:type" content="website">
 
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 420px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+h2 {
+    margin-bottom: 12px;
+}
+
+/* Nháy nhẹ */
+@keyframes blinkSoft {
+    0% { opacity: 1; }
+    50% { opacity: 0.75; }
+    100% { opacity: 1; }
+}
+
+.blink-soft {
+    animation: blinkSoft 1.5s infinite;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>
+</head>
+
 <body>
 <div class="container">
-<h1>🎁 DỊCH VỤ NUÔI TUI 🎁</h1>
 
-<div class="card pink">
-⭐ <b>Bạn không cần suy nghĩ gì cả!</b> ⭐<br>
-Cứ quét mã – còn tui tự lo thân tui 😎
-</div>
+<h2>Nuôi Mori</h2>
 
-<div class="qr-box">
-<p><b>Quét mã chuyển khoản</b></p>
-<b>PHẠM ĐỨC LÂM</b><br>Techcombank<br><br>
-<img <img src="IMG_0207.jpeg"
+<!-- QR nháy nhẹ -->
+<img src="IMG_0207.jpeg"
      class="blink-soft"
-     onclick="this.requestFullscreen()">" onclick="this.requestFullscreen()">
-<p>STK: <b>3188 8899 9999 99</b></p>
+     onclick="this.requestFullscreen()">
 
+<!-- Copy nội dung chuyển khoản -->
 <button class="btn"
-onclick="navigator.clipboard.writeText('3188889999999')">
-📋 Copy số tài khoản
+onclick="navigator.clipboard.writeText('nuoi mori')">
+✍️ Copy nội dung chuyển khoản
 </button>
 
-<button class="btn"
-onclick="navigator.clipboard.writeText('Nuoi mori')">
-✍️ Copy nội dung CK
-</button>
-</div>
-
-<div class="card orange">
-🎅 Anh chàng mori chăm sóc 24/7
-</div><div style="text-align:center; margin-top:20px;">
+<!-- Liên hệ -->
+<div style="margin-top:22px;">
     <p><b>Liên hệ nhanh</b></p>
 
-    <a href="https://zalo.me/0387174433" target="_blank" style="margin:0 10px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
-             width="50" alt="Zalo">
+    <a href="https://zalo.me/0387174433" target="_blank" style="margin:0 8px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" width="45">
     </a>
 
     <a href="https://www.facebook.com/share/17u1g5xd98/?mibextid=wwXIfr"
-       target="_blank" style="margin:0 10px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg"
-             width="50" alt="Facebook">
+       target="_blank" style="margin:0 8px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" width="45">
     </a>
 </div>
+
 </div>
 </body>
 </html>
