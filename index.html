@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dịch vụ Nuôi Tui</title>
-<style>
+<style>@keyframes blinkSoft {
+  0% { opacity: 1; }
+  50% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+
+.blink-soft {
+  animation: blinkSoft 1.5s infinite;
+}
 body{font-family:Arial;background:#f2f2f2;margin:0}
 .container{max-width:420px;margin:20px auto;background:#fff;
 border-radius:16px;padding:20px;box-shadow:0 6px 15px rgba(0,0,0,.15)}
@@ -36,7 +44,9 @@ Cứ quét mã – còn tui tự lo thân tui 😎
 <div class="qr-box">
 <p><b>Quét mã chuyển khoản</b></p>
 <b>PHẠM ĐỨC LÂM</b><br>Techcombank<br><br>
-<img src="IMG_0207.jpeg" onclick="this.requestFullscreen()">
+<img <img src="IMG_0207.jpeg"
+     class="blink-soft"
+     onclick="this.requestFullscreen()">" onclick="this.requestFullscreen()">
 <p>STK: <b>3188 8899 9999 99</b></p>
 
 <button class="btn"
