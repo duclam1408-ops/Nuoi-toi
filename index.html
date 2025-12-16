@@ -20,6 +20,7 @@ body {
     padding: 16px;
 }
 
+/* Header */
 .header {
     text-align: center;
     font-size: 22px;
@@ -51,60 +52,87 @@ body {
     font-weight: 700;
 }
 
-.stk {
-    font-size: 20px;
-    margin-top: 6px;
-    color: #333;
+.bank {
+    font-size: 18px;
+    color: #555;
 }
 
+/* QR */
 .qr-box {
     margin: 20px auto;
     background: #fff;
     border-radius: 18px;
     padding: 16px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .qr-box img {
+    display: block;
+    margin: 0 auto;
     width: 100%;
     max-width: 300px;
     border-radius: 12px;
 }
 
+/* Copy box */
 .copy-box {
+    display: flex;
+    gap: 12px;
     margin-top: 18px;
-    text-align: center;
 }
 
 .copy-item {
+    flex: 1;
     background: #f6f6f6;
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    border: 2px solid #ff7eb3;
+    animation: pinkGlow 2.5s infinite;
 }
 
 .copy-item b {
+    font-size: 14px;
     display: block;
     margin-bottom: 6px;
 }
 
+.stk-value {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nd-value {
+    color: #d63384;
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .copy-btn {
-    margin-top: 6px;
-    padding: 8px 14px;
+    margin-top: 8px;
+    padding: 6px 10px;
     background: #007bff;
     color: #fff;
     border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 12px;
     cursor: pointer;
 }
 
 .copy-btn:active {
-    transform: scale(0.96);
+    transform: scale(0.95);
 }
 
-/* Floating Social Icons */
+/* Viền hồng nhấp nháy */
+@keyframes pinkGlow {
+    0% { box-shadow: 0 0 0 rgba(255,126,179,0.2); }
+    50% { box-shadow: 0 0 12px rgba(255,126,179,0.6); }
+    100% { box-shadow: 0 0 0 rgba(255,126,179,0.2); }
+}
+
+/* Floating icons */
 .floating-social {
     position: fixed;
     bottom: 20px;
@@ -149,6 +177,30 @@ body {
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
 }
+
+/* Toast mượt */
+#toast {
+    position: fixed;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px) scale(0.95);
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: 
+        opacity 0.35s ease,
+        transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
 </style>
 </head>
 
@@ -165,50 +217,60 @@ body {
     <div class="section">
         <div class="section-title">Chuyển khoản đến</div>
         <div class="name">PHẠM ĐỨC LÂM</div>
-        <div class="stk">Techcombank</div>
+        <div class="bank">Techcombank</div>
     </div>
 
     <div class="qr-box">
         <img src="IMG_0207.jpeg" alt="QR Techcombank">
     </div>
 
-    <!-- COPY BOX -->
     <div class="copy-box">
-
         <div class="copy-item">
             <b>Số tài khoản</b>
-            <span id="stkText">3188 8899 9999 99</span>
-            <br>
-            <button class="copy-btn" onclick="copyText('stkText')">Copy STK</button>
+            <span id="stkText" class="stk-value">3188 8899 9999 99</span><br>
+            <button class="copy-btn" onclick="copyText('stkText','Đã copy STK')">Copy</button>
         </div>
 
         <div class="copy-item">
-            <b>Nội dung chuyển khoản</b>
-            <span id="ndText">nuoi mori</span>
-            <br>
-            <button class="copy-btn" onclick="copyText('ndText')">Copy nội dung</button>
+            <b>Nội dung CK</b>
+            <span id="ndText" class="nd-value">nuoi mori</span><br>
+            <button class="copy-btn" onclick="copyText('ndText','Đã copy nội dung')">Copy</button>
         </div>
-
     </div>
 </div>
 
-<!-- Floating Zalo & Facebook -->
+<!-- Floating icons -->
 <div class="floating-social">
     <a href="https://zalo.me/0387174433" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg">
     </a>
-
     <a href="https://www.facebook.com/share/1AVXGL3ivR/?mibextid=wwXIfr" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
     </a>
 </div>
 
+<!-- Toast -->
+<div id="toast"></div>
+
 <script>
-function copyText(id) {
+let toastTimer;
+
+function copyText(id, message) {
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text).then(() => {
-        alert("Đã copy: " + text);
+        showToast(message);
     });
+}
+
+function showToast(msg) {
+    const toast = document.getElementById("toast");
+    toast.innerText = msg;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 1500);
 }
 </script>
 
