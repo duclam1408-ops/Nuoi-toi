@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dịch vụ nuôi tôi</title>
 
 <style>
@@ -78,7 +79,7 @@ body{
     transform:scale(.96);
 }
 
-/* MORI */
+/* MORI BOX */
 .mori-box{
     margin-top:16px;
     background:linear-gradient(90deg,#ffd56b,#ffb703);
@@ -89,6 +90,7 @@ body{
     font-weight:700;
     box-shadow:0 6px 14px rgba(0,0,0,.15);
     animation:moriPulse 2.5s infinite;
+    cursor:pointer;
 }
 
 @keyframes moriPulse{
@@ -139,18 +141,11 @@ body{
     align-items:center;
     justify-content:center;
     box-shadow:0 6px 16px rgba(0,0,0,.25);
-    animation:pulse 2s infinite;
 }
 
 .floating-social img{
     width:26px;
     height:26px;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.08)}
-    100%{transform:scale(1)}
 }
 </style>
 </head>
@@ -168,7 +163,7 @@ body{
 
     <!-- QR -->
     <div class="qr-card">
-        <img src="IMG_0207.jpeg" alt="QR Techcombank">
+        <img src="IMG_0207.jpeg" alt="QR chuyển khoản">
     </div>
 
     <!-- BUTTONS -->
@@ -178,8 +173,8 @@ body{
     </div>
 
     <!-- MORI -->
-    <div class="mori-box">
-        👨‍⚕️ Anh chàng mori chăm sóc 24/7
+    <div class="mori-box" onclick="loveToast()">
+        👨‍⚕️ Bấm vào đây mori tặng bạn điều bất ngờ ❤️
     </div>
 
 </div>
@@ -198,8 +193,27 @@ body{
 
 <script>
 let toastTimer;
-const STK="3188 8899 9999 99";
-const ND="nuoi mori";
+let loveIndex = 0;
+
+const STK = "3188 8899 9999 99";
+const ND  = "nuoi mori";
+
+const loveMessages = [
+    "I love you ❤️",
+    "Yêu bạn nhiều 😘",
+    "Bấm nữa đi 😆",
+    "Tim rung rinh rồi 💓",
+    "Đừng bấm hoài mà 😳",
+    "Thôi yêu luôn 💖"
+];
+
+function showToast(msg){
+    const t=document.getElementById("toast");
+    t.innerText=msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>t.classList.remove("show"),1500);
+}
 
 function copySTK(){
     navigator.clipboard.writeText(STK).then(()=>{
@@ -213,12 +227,9 @@ function copyND(){
     });
 }
 
-function showToast(msg){
-    const t=document.getElementById("toast");
-    t.innerText=msg;
-    t.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer=setTimeout(()=>t.classList.remove("show"),1500);
+function loveToast(){
+    showToast(loveMessages[loveIndex]);
+    loveIndex = (loveIndex + 1) % loveMessages.length;
 }
 </script>
 
