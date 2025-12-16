@@ -3,67 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuoi-toi</title>
+<title>Dịch vụ nuôi TUI</title>
+
 <style>
-    body {
-        margin:0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background: #fff;
-    }
-    .container {
-        max-width: 420px;
-        margin:auto;
-        text-align: center;
-        padding: 22px 12px;
-    }
-    .title {
-        font-size: 22px;
-        margin-bottom: 8px;
-    }
-    .name {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 6px;
-    }
-    .stk {
-        font-size: 26px;
-        font-weight: 500;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-    }
-    .arrow {
-        font-size: 18px;
-        color: #777;
-    }
-    .qr-card {
-        margin-top: 18px;
-        background: #fff;
-        border-radius: 20px;
-        padding: 14px;
-        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-    }
-    .qr-card img {
-        width: 100%;
-        max-width: 320px;
-        border-radius: 12px;
-    }
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+.container {
+    max-width: 430px;
+    margin: auto;
+    background: #fff;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+.header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.notice {
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    color: #fff;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.section {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.stk {
+    font-size: 20px;
+    margin-top: 6px;
+    color: #333;
+}
+
+.qr-box {
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+.qr-box img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+}
+
+.copy-box {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.copy-item {
+    background: #f6f6f6;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.copy-item b {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.copy-btn {
+    margin-top: 6px;
+    padding: 8px 14px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.copy-btn:active {
+    transform: scale(0.96);
+}
+
+/* Floating Social Icons */
+.floating-social {
+    position: fixed;
+    bottom: 20px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 999;
+}
+
+.floating-social a {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    animation: pulse 2s infinite;
+}
+
+.floating-social img {
+    width: 28px;
+    height: 28px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.floating-social a:active {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
 </style>
 </head>
 
 <body>
+
 <div class="container">
-    <div class="title">Quét mã để chuyển tiền đến</div>
-    <div class="name">PHAM DUC LAM</div>
-    <div class="stk">
-        3188 8899 9999 99
-        <span class="arrow">⌄</span>
+    <div class="header">🎁 DỊCH VỤ NUÔI TUI 🎁</div>
+
+    <div class="notice">
+        ⭐ Bạn không cần suy nghĩ gì cả! ⭐<br>
+        Cứ quét mã – việc còn lại để TUI lo 😎
     </div>
-    <div class="qr-card">
-        <!-- 👉 Đây là ảnh QR bạn đã upload -->
+
+    <div class="section">
+        <div class="section-title">Chuyển khoản đến</div>
+        <div class="name">PHẠM ĐỨC LÂM</div>
+        <div class="stk">Techcombank</div>
+    </div>
+
+    <div class="qr-box">
         <img src="IMG_0207.jpeg" alt="QR Techcombank">
     </div>
+
+    <!-- COPY BOX -->
+    <div class="copy-box">
+
+        <div class="copy-item">
+            <b>Số tài khoản</b>
+            <span id="stkText">3188 8899 9999 99</span>
+            <br>
+            <button class="copy-btn" onclick="copyText('stkText')">Copy STK</button>
+        </div>
+
+        <div class="copy-item">
+            <b>Nội dung chuyển khoản</b>
+            <span id="ndText">nuoi mori</span>
+            <br>
+            <button class="copy-btn" onclick="copyText('ndText')">Copy nội dung</button>
+        </div>
+
+    </div>
 </div>
+
+<!-- Floating Zalo & Facebook -->
+<div class="floating-social">
+    <a href="https://zalo.me/0387174433" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+    </a>
+
+    <a href="https://www.facebook.com/share/1AVXGL3ivR/?mibextid=wwXIfr" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+    </a>
+</div>
+
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Đã copy: " + text);
+    });
+}
+</script>
+
 </body>
 </html>
